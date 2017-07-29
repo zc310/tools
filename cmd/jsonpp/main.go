@@ -14,15 +14,15 @@ func main() {
 	}
 
 	fileName := os.Args[1]
-	byt, err := ioutil.ReadFile(fileName)
+	b, err := ioutil.ReadFile(fileName)
 	if err != nil {
 		panic(err)
 	}
 
 	var obj map[string]interface{}
 	var arr []map[string]interface{}
-	if err := json.Unmarshal(byt, &obj); err != nil {
-		if err := json.Unmarshal(byt, &arr); err != nil {
+	if err := json.Unmarshal(b, &obj); err != nil {
+		if err := json.Unmarshal(b, &arr); err != nil {
 			panic(err)
 		}
 		pp(arr)
